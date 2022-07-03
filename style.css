@@ -1,0 +1,115 @@
+* {
+  background-color: #101010;
+  font-family: "Poppins", sans-serif;
+  color: #40abaf;
+  font-size: 14px;
+}
+
+.base-color {
+  color: #40abaf;
+}
+
+.neonlabel {
+  color: #8273ad;
+  text-shadow: 0 0 5px #8273ad;
+  animation: flicker 1.5s infinite alternate;
+}
+
+input[type="text"],
+#texter {
+  margin-right: 5px;
+  line-height: 1em;
+  color: #8273ad;
+  border: none;
+  height: 20px;
+  resize: none;
+  position: absolute;
+  caret-color: transparent;
+}
+
+#texter:focus {
+  outline: none;
+}
+
+.colored {
+  color: #8273ad;
+}
+
+.error-arrow {
+  color: #ff3535 !important;
+}
+
+.no-animation {
+  animation: flicker 0s infinite alternate;
+}
+
+p {
+  display: block;
+  line-height: 1.3em;
+  margin: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  margin: 0;
+}
+
+#cursor {
+  margin-left: 1px;
+  line-height: 1em;
+  position: relative;
+  opacity: 1;
+  width: 20px;
+  max-width: 10px;
+  text-decoration: blink;
+  animation: blinker 1.5s linear infinite;
+}
+/* .cursor {
+  font-size: 12px;
+  margin-left: 5px;
+  color: #73abad;
+  background-color: #73abad;
+  position: relative;
+  opacity: 1;
+  height: 1.5em;
+  width: 10px;
+  max-width: 10px;
+  transform: translateY(4px);
+  overflow: hidden;
+  text-indent: -5px;
+  display: inline-block;
+  text-decoration: blink;
+  animation: blinker 1s linear infinite;
+}
+*/
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
+
+@keyframes flicker {
+  0%,
+  18%,
+  22%,
+  25%,
+  53%,
+  57%,
+  100% {
+    text-shadow: 0 0 3px #9382c2;
+  }
+
+  20%,
+  24%,
+  55% {
+    text-shadow: none;
+  }
+}
+
+.prompt {
+  line-height: 1em;
+}
+.arrow {
+  color: rgba(240, 255, 255, 0.774);
+  font-weight: 600;
+  line-height: 1em;
+}
