@@ -19,7 +19,7 @@ whois = [
   "expand my skill set through challenging projects and mentorship. In my opinion team",
   "work is the key to every successful project.",
   "Meanwhile on my free time I take photos and travel as much as I can. I'm a fan of ",
-  "the outdoors and exploring but I also enjoy some peaceful and cozy times back home.",
+  "the outdoors and exploring but I also enjoy some peaceful and cozy time back home.",
   "<div><br></div>",
 ];
 
