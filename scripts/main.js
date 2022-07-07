@@ -66,6 +66,8 @@ function commander(cmd) {
     case "banner":
       loopLines(banner, "colored", 80);
       break;
+    case "":
+      break;
     case "clear":
       break;
     default:
