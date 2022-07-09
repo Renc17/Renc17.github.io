@@ -1,6 +1,5 @@
 * {
   background-color: #101010;
-  font-family: "Poppins", sans-serif;
   color: #40abaf;
   font-size: 14px;
 }
@@ -43,12 +42,11 @@ input[type="text"],
   animation: flicker 0s infinite alternate;
 }
 
-p {
+div {
   display: block;
   line-height: 1.3em;
   margin: 0;
   overflow: hidden;
-  white-space: nowrap;
   margin: 0;
 }
 
@@ -62,24 +60,6 @@ p {
   text-decoration: blink;
   animation: blinker 1.5s linear infinite;
 }
-/* .cursor {
-  font-size: 12px;
-  margin-left: 5px;
-  color: #73abad;
-  background-color: #73abad;
-  position: relative;
-  opacity: 1;
-  height: 1.5em;
-  width: 10px;
-  max-width: 10px;
-  transform: translateY(4px);
-  overflow: hidden;
-  text-indent: -5px;
-  display: inline-block;
-  text-decoration: blink;
-  animation: blinker 1s linear infinite;
-}
-*/
 
 @keyframes blinker {
   50% {
@@ -112,4 +92,9 @@ p {
   color: rgba(240, 255, 255, 0.774);
   font-weight: 600;
   line-height: 1em;
+}
+
+.ascii-art {
+  font-family: monospace;
+  white-space: pre;
 }

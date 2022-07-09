@@ -1,4 +1,4 @@
-var before = document.getElementById("before");
+var before = "";
 var command = document.getElementById("typer");
 var textarea = document.getElementById("texter");
 
@@ -7,8 +7,10 @@ var commands = [];
 
 // intialize the terminal
 setTimeout(function () {
-  newprompt("");
-  loopLines(banner, "colored", 80);
+  addlog();
+  before = document.getElementById("before");
+  newprompt("", "");
+  loopLines(banner, "ps-5 colored", 80);
   textarea.focus();
 }, 100);
 
@@ -18,14 +20,14 @@ window.onload = function () {
 
 window.addEventListener("keyup", enterKey);
 
-function newprompt(text) {
+function newprompt(text, style) {
   var prompt = document.createElement("span");
   prompt.innerHTML = "~";
 
   var div = document.createElement("div");
   var arrow = document.createElement("span");
   arrow.innerHTML = ">";
-  arrow.className = "arrow";
+  arrow.className = "arrow " + style;
   div.appendChild(arrow);
 
   var cmd = document.createElement("span");
@@ -40,40 +42,52 @@ function commander(cmd) {
   cmd = cmd.replace(new RegExp(/\r?\n|\r/g), "");
   switch (cmd.toLowerCase()) {
     case "whois":
+      newprompt(textarea.value, "");
       loopLines(whois, "ps-5 ", 80);
       break;
     case "help":
+      newprompt(textarea.value, "");
       loopLines(help, "ps-5 d-flex", 80);
       break;
     case "projects":
+      newprompt(textarea.value, "");
       loopLines(projects, "ps-5 d-flex", 80);
       break;
     case "skills":
+      newprompt(textarea.value, "");
       loopLines(skills, "ps-5 d-flex", 80);
       break;
     case "experience":
+      newprompt(textarea.value, "");
       loopLines(experiance, "ps-5 d-flex", 80);
       break;
     case "education":
+      newprompt(textarea.value, "");
       loopLines(education, "ps-5 d-flex", 80);
       break;
     case "social":
+      newprompt(textarea.value, "");
       loopLines(social, "ps-5 d-flex", 80);
       break;
     case "contact":
+      newprompt(textarea.value, "");
       loopLines(contact, "ps-5 d-flex", 80);
       break;
     case "banner":
-      loopLines(banner, "colored", 80);
+      newprompt(textarea.value, "");
+      loopLines(banner, "ps-5 colored", 80);
       break;
     case "":
+      newprompt(textarea.value, "");
       break;
     case "clear":
+      clear();
       break;
     default:
+      newprompt(textarea.value, "error-arrow");
       addLine(
         '<span class="colored">' + cmd + ": Command not found.</span>",
-        "error mb-3",
+        "mb-3",
         100
       );
       break;
@@ -88,7 +102,7 @@ function typeIt(from, e) {
 
 function enterKey(e) {
   if (e.keyCode == 13) {
-    newprompt(textarea.value);
+    console.log("dfkh");
     commander(textarea.value);
 
     textarea.value = "";
@@ -97,17 +111,9 @@ function enterKey(e) {
 }
 
 function addLine(text, style, time) {
-  var t = "";
-  for (let i = 0; i < text.length; i++) {
-    if (text.charAt(i) == " " && text.charAt(i + 1) == " ") {
-      t += "&nbsp;&nbsp;";
-    } else {
-      t += text.charAt(i);
-    }
-  }
   setTimeout(function () {
-    var next = document.createElement("p");
-    next.innerHTML = t;
+    var next = document.createElement("div");
+    next.innerHTML = text;
     next.className = style;
 
     before.parentNode.insertBefore(next, before);
@@ -120,4 +126,27 @@ function loopLines(name, style, time) {
   name.forEach(function (item, index) {
     addLine(item, style, index * time);
   });
+}
+
+function clear() {
+  var logs = document.getElementById("log");
+  logs.remove();
+
+  addlog();
+
+  before = document.getElementById("before");
+  command = document.getElementById("typer");
+  textarea = document.getElementById("texter");
+}
+
+function addlog() {
+  var div = document.createElement("div");
+  div.id = "log";
+  div.className = "ascii-art";
+  var a = document.createElement("a");
+  a.id = "before";
+  div.appendChild(a);
+
+  var prompt = document.getElementById("prompt");
+  prompt.parentNode.insertBefore(div, prompt);
 }
